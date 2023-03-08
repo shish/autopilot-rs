@@ -20,6 +20,7 @@ use core_graphics::event_source::CGEventSourceStateID::HIDSystemState;
 use internal;
 #[cfg(target_os = "linux")]
 use libc;
+#[cfg(windows)]
 use winapi::um::winuser::KEYBDINPUT;
 #[cfg(target_os = "linux")]
 use x11;
@@ -357,7 +358,6 @@ impl From<KeyCode> for CGKeyCode {
             KeyCode::Return => event::KeyCode::RETURN,
             KeyCode::PageDown => event::KeyCode::PAGE_DOWN,
             KeyCode::Delete => event::KeyCode::DELETE,
-            KeyCode::Insert => 0,
             KeyCode::Home => event::KeyCode::HOME,
             KeyCode::Escape => event::KeyCode::ESCAPE,
             KeyCode::Backspace => event::KeyCode::DELETE,
